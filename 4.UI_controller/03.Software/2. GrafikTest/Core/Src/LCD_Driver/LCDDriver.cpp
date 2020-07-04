@@ -34,9 +34,9 @@ void LCDDriver::InitLCD(){
 	WriteData_16bit(LCD_setGraphicHomeAddress, 0);
 	WriteData_16bit(LCD_setGraphicArea, 0x0020);
 	//Init MODE SET
-	WriteData_8bit(LCD_EXOR_mode |LCD_InternalCGROM_mode);
+	WriteData_8bit(LCD_AND_mode |LCD_InternalCGROM_mode);
 	//Init DISPLY MODE
-	WriteData_8bit(LCD_cursorOnBlinkON | LCD_textOnGraphicOFF);
+	WriteData_8bit(LCD_cursorOnBlinkON | LCD_textONGraphicON);
 	//Init CURSOR PATTERN SELECT
 	WriteData_8bit(LCD_1_lineCursor);
 	//Init DATA AUTO READ/WRITE
@@ -104,6 +104,7 @@ void LCDDriver::ClearDisplay(){
 	for(uint16_t counter = 0; counter<LCD_XY_SIZE.column*LCD_XY_SIZE.row; counter++){
 		WriteData_16bit(LCD_dataWriteAndIncrementADP, 0x00);
 	}
+	WriteData_8bit(LCD_OR_mode |LCD_InternalCGROM_mode);
 }
 
 
