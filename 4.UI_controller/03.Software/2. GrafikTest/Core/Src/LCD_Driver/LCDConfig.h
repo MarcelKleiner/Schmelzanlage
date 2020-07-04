@@ -80,7 +80,7 @@
 #define LCD_DisplayOFF							0x90
 #define LCD_cursorOnBlinkOff					0x92
 #define LCD_cursorOnBlinkON						0x93
-#define LCD_textOnGraphicOFF					0x94
+#define LCD_textONGraphicOFF					0x94
 #define LCD_textOFFGraphicON					0x98
 #define LCD_textONGraphicON						0x9C
 

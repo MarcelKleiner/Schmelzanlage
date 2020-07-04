@@ -24,7 +24,6 @@ void LCDDriver::InitLCD(){
 	LCD_WR_SET;
 	SetLCDSize(SIZE_40C);
 
-
 	//init REGISTERS SETTING
 	WriteData_16bit(LCD_setCursorPointer,0);
 	WriteData_16bit(LCD_setAddressPointer, 0);
@@ -32,11 +31,10 @@ void LCDDriver::InitLCD(){
 	//Init SET CONTROL WORD
 	WriteData_16bit(LCD_setTextHomeAddress,0);
 	WriteData_16bit(LCD_setGraphicHomeAddress, 0);
-	WriteData_16bit(LCD_setGraphicArea, 0x0020);
 	//Init MODE SET
-	WriteData_8bit(LCD_EXOR_mode |LCD_InternalCGROM_mode);
+	WriteData_8bit(LCD_EXOR_mode |LCD_externalCGRAM_mode);
 	//Init DISPLY MODE
-	WriteData_8bit(LCD_cursorOnBlinkON | LCD_textOnGraphicOFF);
+	WriteData_8bit(LCD_cursorOnBlinkON | LCD_textONGraphicOFF);
 	//Init CURSOR PATTERN SELECT
 	WriteData_8bit(LCD_1_lineCursor);
 	//Init DATA AUTO READ/WRITE
@@ -84,6 +82,7 @@ void LCDDriver::SetLCDSize(LCD_SIZE size){
 		LCD_XY_SIZE.column = 40;	//set LCD size struct to 40 Columns
 		LCD_XY_SIZE.row = 16;		//set LCD size struct to 16 Row
 		WriteData_16bit(LCD_setTextArea, 0x0028);	//set TextArea to 32 Columns
+		WriteData_16bit(LCD_setGraphicArea, 0x0028);
 	}
 	else if(size == SIZE_32C){
 		LCD_SIZE_32;				//set size 40 Columns
@@ -91,6 +90,7 @@ void LCDDriver::SetLCDSize(LCD_SIZE size){
 		LCD_XY_SIZE.column = 32;	//set LCD size struct to 40 Columns
 		LCD_XY_SIZE.row = 16;		//set LCD size struct to 16 Row
 		WriteData_16bit(LCD_setTextArea, 0x0020);	//set TextArea to 40 Columns
+		WriteData_16bit(LCD_setGraphicArea, 0x0020);
 	}
 }
 
@@ -101,8 +101,22 @@ void LCDDriver::SetLCDSize(LCD_SIZE size){
  * @return : none
  */
 void LCDDriver::ClearDisplay(){
+	WriteData_16bit(LCD_setOffsetRegister, 0x0003);
+
+	WriteData_16bit(LCD_setAddressPointer, 0x1C00);
+
+	WriteData_8bit(LCD_dataWriteAndIncrementADP, 0x0000);
+	WriteData_8bit(LCD_dataWriteAndIncrementADP, 0x0004);
+	WriteData_8bit(LCD_dataWriteAndIncrementADP, 0x000E);
+	WriteData_8bit(LCD_dataWriteAndIncrementADP, 0x0015);
+	WriteData_8bit(LCD_dataWriteAndIncrementADP, 0x0004);
+	WriteData_8bit(LCD_dataWriteAndIncrementADP, 0x0004);
+	WriteData_8bit(LCD_dataWriteAndIncrementADP, 0x0004);
+	WriteData_8bit(LCD_dataWriteAndIncrementADP, 0x0000);
+
+	WriteData_16bit(LCD_setAddressPointer, 0x0000);
 	for(uint16_t counter = 0; counter<LCD_XY_SIZE.column*LCD_XY_SIZE.row; counter++){
-		WriteData_16bit(LCD_dataWriteAndIncrementADP, 0x00);
+		WriteData_8bit(LCD_dataWriteAndIncrementADP, 0x80);
 	}
 }
 
