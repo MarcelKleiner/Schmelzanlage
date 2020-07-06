@@ -1,29 +1,22 @@
 gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
-LCDDriver.cpp:15:1:LCDDriver::LCDDriver()	16	static
-LCDDriver.cpp:21:6:void LCDDriver::InitLCD()	16	static
-LCDDriver.cpp:56:6:bool LCDDriver::WriteText(std::__cxx11::string)	24	static
-LCDDriver.cpp:78:6:void LCDDriver::SetLCDSize(LCDDriver::LCD_SIZE)	16	static
-LCDDriver.cpp:103:6:void LCDDriver::ClearDisplay()	24	static
-<<<<<<< HEAD
-LCDDriver.cpp:118:6:void LCDDriver::SetAddressPointer(uint8_t, uint8_t)	24	static
-LCDDriver.cpp:124:6:bool LCDDriver::WriteData_8bit(uint8_t)	16	static
-LCDDriver.cpp:140:6:bool LCDDriver::WriteData_8bit(uint8_t, uint8_t)	16	static
-LCDDriver.cpp:161:6:bool LCDDriver::WriteData_16bit(uint8_t, uint16_t)	16	static
-LCDDriver.cpp:189:6:void LCDDriver::PushData()	16	static
-LCDDriver.cpp:204:23:LCDDriver::LCD_STATUS LCDDriver::CheckStatus(uint8_t)	16	static
-LCDDriver.cpp:231:9:uint8_t LCDDriver::ReadDataPin()	32	static
-LCDDriver.cpp:247:6:void LCDDriver::GPIO_Direction(LCDDriver::PIN_DIRECTION)	80	static
-LCDDriver.cpp:281:6:void LCDDriver::WriteDataPin(uint8_t)	16	static
-LCDDriver.cpp:300:6:void LCDDriver::Reset()	16	static
-=======
-LCDDriver.cpp:131:6:void LCDDriver::SetAddressPointer(uint8_t, uint8_t)	24	static
-LCDDriver.cpp:137:6:bool LCDDriver::WriteData_8bit(uint8_t)	16	static
-LCDDriver.cpp:153:6:bool LCDDriver::WriteData_8bit(uint8_t, uint8_t)	16	static
-LCDDriver.cpp:174:6:bool LCDDriver::WriteData_16bit(uint8_t, uint16_t)	16	static
-LCDDriver.cpp:202:6:void LCDDriver::PushData()	16	static
-LCDDriver.cpp:217:23:LCDDriver::LCD_STATUS LCDDriver::CheckStatus(uint8_t)	16	static
-LCDDriver.cpp:244:9:uint8_t LCDDriver::ReadDataPin()	32	static
-LCDDriver.cpp:260:6:void LCDDriver::GPIO_Direction(LCDDriver::PIN_DIRECTION)	80	static
-LCDDriver.cpp:294:6:void LCDDriver::WriteDataPin(uint8_t)	16	static
-LCDDriver.cpp:313:6:void LCDDriver::Reset()	16	static
->>>>>>> 028b4651fe09ee2cfc58ab4274960db27f17ff49
+LCDDriver.cpp:16:1:LCDDriver::LCDDriver()	16	static
+LCDDriver.cpp:22:6:void LCDDriver::InitLCD()	16	static
+LCDDriver.cpp:55:6:bool LCDDriver::WriteText(std::__cxx11::string)	24	static
+LCDDriver.cpp:67:6:void LCDDriver::WritePixel(uint8_t, uint8_t, bool)	16	static
+LCDDriver.cpp:83:6:void LCDDriver::WriteRectangle(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+LCDDriver.cpp:100:6:void LCDDriver::WriteYLine(uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+LCDDriver.cpp:112:6:void LCDDriver::WriteXLine(uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+LCDDriver.cpp:148:6:void LCDDriver::SetLCDSize(LCDDriver::LCD_SIZE)	16	static
+LCDDriver.cpp:177:6:void LCDDriver::ClearDisplay()	24	static
+LCDDriver.cpp:205:6:void LCDDriver::setUserChar(uint8_t*, uint16_t, uint16_t)	32	static
+LCDDriver.cpp:224:6:void LCDDriver::SetAddressPointer(uint8_t, uint8_t)	24	static
+LCDDriver.cpp:230:6:bool LCDDriver::WriteData_8bit(uint8_t)	16	static
+LCDDriver.cpp:246:6:bool LCDDriver::WriteData_8bit(uint8_t, uint8_t)	16	static
+LCDDriver.cpp:267:6:bool LCDDriver::WriteData_16bit(uint8_t, uint16_t)	16	static
+LCDDriver.cpp:292:6:void LCDDriver::PushData()	16	static
+LCDDriver.cpp:307:23:LCDDriver::LCD_STATUS LCDDriver::CheckStatus(uint8_t)	16	static
+LCDDriver.cpp:334:9:uint8_t LCDDriver::ReadDataPin()	32	static
+LCDDriver.cpp:350:6:void LCDDriver::GPIO_Direction(LCDDriver::PIN_DIRECTION)	80	static
+LCDDriver.cpp:384:6:void LCDDriver::WriteDataPin(uint8_t)	16	static
+LCDDriver.cpp:403:6:void LCDDriver::Reset()	16	static
+cmath:415:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = int; _Up = int]	24	static

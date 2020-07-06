@@ -57,8 +57,8 @@ GrafikTest.bin \
 all: GrafikTest.elf secondary-outputs
 
 # Tool invocations
-GrafikTest.elf: $(OBJS) $(USER_OBJS) C:\Users\Marcel-Laptop\Documents\Git_Repos\4.UI_controller\03.Software\2.\ GrafikTest\STM32F303K8TX_FLASH.ld
-	arm-none-eabi-g++ -o "GrafikTest.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Marcel-Laptop\Documents\Git_Repos\4.UI_controller\03.Software\2. GrafikTest\STM32F303K8TX_FLASH.ld" -Wl,-Map="GrafikTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+GrafikTest.elf: $(OBJS) $(USER_OBJS) C:\Users\marce\Documents\Git_repos\Schmelzanlage\4.UI_controller\03.Software\2.\ GrafikTest\STM32F303K8TX_FLASH.ld
+	arm-none-eabi-g++ -o "GrafikTest.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\marce\Documents\Git_repos\Schmelzanlage\4.UI_controller\03.Software\2. GrafikTest\STM32F303K8TX_FLASH.ld" -Wl,-Map="GrafikTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

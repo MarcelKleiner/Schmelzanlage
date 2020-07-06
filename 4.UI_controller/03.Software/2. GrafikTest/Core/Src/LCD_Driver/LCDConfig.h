@@ -109,14 +109,14 @@
 
 #define LCD_bitReset							0xF0
 #define LCD_bitSet								0xF8
-#define LCD_bit0								0xF0
-#define LCD_bit1								0xF1
-#define LCD_bit2								0xF2
-#define LCD_bit3								0xF3
-#define LCD_bit4								0xF4
-#define LCD_bit5								0xF5
-#define LCD_bit6								0xF6
-#define LCD_bit7								0xF7
+#define LCD_bit0								0x00
+#define LCD_bit1								0x01
+#define LCD_bit2								0x02
+#define LCD_bit3								0x03
+#define LCD_bit4								0x04
+#define LCD_bit5								0x05
+#define LCD_bit6								0x06
+#define LCD_bit7								0x07
 
 #define LCD_SCREEN_REVERSE						0xD0
 #define LCD_BLINK_TIME							0x50
@@ -142,4 +142,16 @@
 
 #define FONT_01									0x02
 #define FONT_02									0x03
+
+
+//User define Char
+
+
+#define PATTERN_SIZE							0x08
+
+//#define CH_ARROW	{0x00, 0x04, 0x0E, 0x15, 0x04, 0x04, 0x04,0x00}
+
+
+
+
 #endif /* SRC_LCD_DRIVER_LCDCONFIG_H_ */
