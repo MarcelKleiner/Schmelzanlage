@@ -196,6 +196,16 @@ void LCDDriver::ClearDisplay(){
 	WriteData_16bit(LCD_setAddressPointer, LCD_TXT_START_ADDR);
 }
 
+
+
+void LCDDriver::writeScreen(bitset<LCD_WIDTH> *screenMirror){
+
+}
+
+
+
+
+
 /*
  * Write user define Character to external RAM
  * Text Area: 		0x0000-0x7FFF

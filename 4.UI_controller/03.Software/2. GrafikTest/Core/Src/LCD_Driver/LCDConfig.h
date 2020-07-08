@@ -10,6 +10,18 @@
 
 #include "stm32f3xx_hal.h"
 
+
+//general LCD settings
+
+#define LCD_TIMEOUT			50
+#define LCD_WIDTH			240
+#define LCD_HEIGHT			128
+
+#define LCD_TXT_START_ADDR		0x0000
+#define LCD_GRAPHIC_START_ADDR	0x0400
+
+
+//T6963C commands
 #define LCD_WR_SET		HAL_GPIO_WritePin(WR_GPIO_Port, WR_Pin, GPIO_PIN_SET)
 #define LCD_WR_RESET	HAL_GPIO_WritePin(WR_GPIO_Port, WR_Pin, GPIO_PIN_RESET)
 

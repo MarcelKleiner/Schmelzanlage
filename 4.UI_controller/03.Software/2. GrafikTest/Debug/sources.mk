@@ -28,6 +28,7 @@ OBJCOPY_BIN :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Core/Src/AppMain \
+Core/Src/ImgControl \
 Core/Src/LCD_Driver \
 Core/Src \
 Core/Startup \

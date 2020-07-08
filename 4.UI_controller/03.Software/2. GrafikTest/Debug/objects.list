@@ -1,4 +1,5 @@
 "Core/Src/AppMain/AppMain.o"
+"Core/Src/ImgControl/ImgControl.o"
 "Core/Src/LCD_Driver/LCDDriver.o"
 "Core/Src/gpio.o"
 "Core/Src/i2c.o"

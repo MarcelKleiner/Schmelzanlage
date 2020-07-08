@@ -9,8 +9,8 @@
 #include "main.h"
 
 
+#include"../ImgControl/ImgControl.h"
 #include "../LCD_Driver/LCDDriver.h"
-
 
 
 #ifndef SRC_APPMAIN_APPMAIN_H_
@@ -24,7 +24,7 @@ public:
 private:
 
 	LCDDriver lcdDriver = LCDDriver();
-
+	ImgControl imgControl = ImgControl(&lcdDriver);
 };
 
 #endif /* SRC_APPMAIN_APPMAIN_H_ */

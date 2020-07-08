@@ -11,6 +11,7 @@ RM := rm -rf
 -include Drivers/STM32F3xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/LCD_Driver/subdir.mk
+-include Core/Src/ImgControl/subdir.mk
 -include Core/Src/AppMain/subdir.mk
 -include Core/Src/subdir.mk
 -include subdir.mk

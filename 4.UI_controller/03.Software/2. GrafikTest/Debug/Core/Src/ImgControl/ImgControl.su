@@ -1,0 +1,27 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+ImgControl.cpp:14:1:ImgControl::ImgControl(LCDDriver*)	16	static
+ImgControl.cpp:19:6:void ImgControl::initImgControl()	16	static
+ImgControl.cpp:26:6:void ImgControl::writeScreenMirror()	32	static
+ImgControl.cpp:51:6:void ImgControl::writeXLine(uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+ImgControl.cpp:59:6:void ImgControl::writeYLine(uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+ImgControl.cpp:66:6:void ImgControl::writeRectangle(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	24	static
+ImgControl.cpp:75:6:void ImgControl::clearMirror()	24	static
+bitset:1155:7:std::bitset<_Nb>::reference std::bitset<_Nb>::operator[](std::size_t) [with unsigned int _Nb = 240]	24	static
+bitset:815:2:std::bitset<_Nb>::reference::~reference() [with unsigned int _Nb = 240]	16	static
+bitset:846:2:std::bitset<_Nb>::reference::operator bool() const [with unsigned int _Nb = 240]	24	static
+bitset:1006:7:std::bitset<_Nb>& std::bitset<_Nb>::operator>>=(std::size_t) [with unsigned int _Nb = 240]	16	static
+bitset:820:2:std::bitset<_Nb>::reference& std::bitset<_Nb>::reference::operator=(bool) [with unsigned int _Nb = 240]	16	static
+bitset:1091:7:std::bitset<_Nb>& std::bitset<_Nb>::reset() [with unsigned int _Nb = 240]	16	static
+bitset:809:2:std::bitset<_Nb>::reference::reference(std::bitset<_Nb>&, std::size_t) [with unsigned int _Nb = 240]	24	static
+bitset:103:7:static constexpr std::size_t std::_Base_bitset<_Nw>::_S_whichbit(std::size_t) [with unsigned int _Nw = 8]	16	static
+bitset:107:7:static constexpr std::_Base_bitset<_Nw>::_WordT std::_Base_bitset<_Nw>::_S_maskbit(std::size_t) [with unsigned int _Nw = 8]	16	static
+bitset:262:5:void std::_Base_bitset<_Nw>::_M_do_right_shift(std::size_t) [with unsigned int _Nw = 8]	48	static
+bitset:775:7:void std::bitset<_Nb>::_M_do_sanitize() [with unsigned int _Nb = 240]	16	static
+bitset:174:7:void std::_Base_bitset<_Nw>::_M_do_reset() [with unsigned int _Nw = 8]	16	static
+bitset:111:7:std::_Base_bitset<_Nw>::_WordT& std::_Base_bitset<_Nw>::_M_getword(std::size_t) [with unsigned int _Nw = 8]	16	static
+stl_algobase.h:724:5:void std::fill(_ForwardIterator, _ForwardIterator, const _Tp&) [with _ForwardIterator = long unsigned int*; _Tp = long unsigned int]	32	static
+bitset:652:7:static void std::_Sanitize<_Extrabits>::_S_do_sanitize(std::_Sanitize<_Extrabits>::_WordT&) [with unsigned int _Extrabits = 16]	16	static
+bitset:125:7:std::_Base_bitset<_Nw>::_WordT& std::_Base_bitset<_Nw>::_M_hiword() [with unsigned int _Nw = 8]	16	static
+bitset:95:7:static constexpr std::size_t std::_Base_bitset<_Nw>::_S_whichword(std::size_t) [with unsigned int _Nw = 8]	16	static
+stl_algobase.h:277:5:_Iterator std::__niter_base(_Iterator) [with _Iterator = long unsigned int*]	16	static
+stl_algobase.h:691:5:typename __gnu_cxx::__enable_if<std::__is_scalar<_Tp>::__value, void>::__type std::__fill_a(_ForwardIterator, _ForwardIterator, const _Tp&) [with _ForwardIterator = long unsigned int*; _Tp = long unsigned int]	32	static

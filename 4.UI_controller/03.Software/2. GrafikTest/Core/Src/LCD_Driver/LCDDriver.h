@@ -11,17 +11,12 @@
 #include "stm32f3xx_hal.h"
 #include<string> // for string class
 #include "LCDConfig.h"
-
+#include <bitset>
 
 using namespace std;
 
 
-#define LCD_TIMEOUT			50
-#define LCD_WIDTH			240
-#define LCD_HEIGHT			128
 
-#define LCD_TXT_START_ADDR		0x0000
-#define LCD_GRAPHIC_START_ADDR	0x0400
 
 
 class LCDDriver {
@@ -38,7 +33,12 @@ public:
 	void WriteYLine(uint8_t startX,uint8_t startY, uint8_t height, uint8_t lineThickness);
 
 	void ClearDisplay(void);
+	void writeScreen(bitset<240> *screenMirror);
 
+
+	bool WriteData_8bit(uint8_t addr, uint8_t data);
+	bool WriteData_8bit(uint8_t addr);
+	bool WriteData_16bit(uint8_t addr, uint16_t data);
 
 private:
 
@@ -75,9 +75,7 @@ private:
 	void PushData(void);
 
 
-	bool WriteData_8bit(uint8_t addr);
-	bool WriteData_8bit(uint8_t addr, uint8_t data);
-	bool WriteData_16bit(uint8_t addr, uint16_t data);
+
 
 	LCD_STATUS CheckStatus(uint8_t timeOUt);
 
