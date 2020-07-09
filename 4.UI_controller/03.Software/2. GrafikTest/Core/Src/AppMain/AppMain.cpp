@@ -29,51 +29,94 @@ void AppMain::main(){
 	lcdDriver.WriteText("Copyright (C) 1991-2020, B&K System AG");
 	lcdDriver.SetAddressPointer(0, 2);
 	lcdDriver.WriteText("Init System...");
-	HAL_Delay(1000);
+	//HAL_Delay(1000);
 	lcdDriver.SetAddressPointer(0, 3);
 	lcdDriver.WriteText("Booting from internal ROM...");
-	HAL_Delay(800);
+	//HAL_Delay(800);
 	lcdDriver.SetAddressPointer(0, 5);
 	lcdDriver.WriteText("Main Processor : STM32F303K8");
 	lcdDriver.SetAddressPointer(0, 6);
 	lcdDriver.WriteText("Memory Testing : 64K OK ");
-	HAL_Delay(800);
+	//HAL_Delay(800);
 	lcdDriver.SetAddressPointer(0, 15);
 	lcdDriver.WriteText("Press F1 to enter BIOS...");
 
 	lcdDriver.WriteRectangle(140, 50, 51, 30, 1);
 	*/
+	uint8_t i = 0;
+	uint8_t u = 0;
 	while(1){
-		for(int i = 0; i<98;i++){
-			imgControl.writeRectangle(i, 20, 30, 15, 1);
-			imgControl.writeRectangle(i+100, i, 20, 10, 1);
-			imgControl.writeRectangle(i+40, i, 10, 25, 1);
+
+		//unten rechts
+		while(i < 113 && u<210){
+			imgControl.writeRectangle(u, i, 30, 15, 1);
 			imgControl.writeScreenMirror();
-			//imgControl.clearMirror();
-			//HAL_Delay(10);
-			//lcdDriver.WriteRectangle(i+20+1, i+1, 30, 20, 1);
-//			lcdDriver.WriteRectangle(i+20, i, 30, 20, 0);
-//			lcdDriver.WriteRectangle(200, i, 30, 20, 0);
-//			lcdDriver.WriteRectangle(i, 0, 30, 20, 0);
-			//lcdDriver.ClearDisplay();
+			i++;
+			u++;
 		}
 
-		for(int i = 98; i>0;i--){
-			imgControl.writeRectangle(i, 20, 30, 15, 1);
-			imgControl.writeRectangle(i+100, i, 20, 10, 1);
-			imgControl.writeRectangle(i+40, i, 10, 25, 1);
-			imgControl.writeScreenMirror();
-			//imgControl.clearMirror();
-//			lcdDriver.WriteRectangle(i+20, i, 30, 20, 1);
-//			lcdDriver.WriteRectangle(200, i, 30, 20, 1);
-//			lcdDriver.WriteRectangle(i, 0, 30, 20, 1);
-			//HAL_Delay(10);
-			//lcdDriver.WriteRectangle(i+20-1, i-1, 30, 20, 1);
-//			lcdDriver.WriteRectangle(i+20, i, 30, 20, 0);
-//			lcdDriver.WriteRectangle(200, i, 30, 20, 0);
-//			lcdDriver.WriteRectangle(i, 0, 30, 20, 0);
-			//lcdDriver.ClearDisplay();
+		if(i == 113){
+			i--;
+			//----hat unten angeschlagen----
+			//nach oben rechts (anschlag unten)
+			while(i > 0 && u<210){
+				imgControl.writeRectangle(u, i, 30, 15, 1);
+				imgControl.writeScreenMirror();
+				i--;
+				u++;
+			}
+			if(u==210){
+				//nach oben links (anschlag rechts
+				while(i > 0 && u>0){
+					imgControl.writeRectangle(u, i, 30, 15, 1);
+					imgControl.writeScreenMirror();
+					i--;
+					u--;
+				}
+				if(i == 0){
+								//hat oben angeschlagen
+								//nach unten rechts
+								while(i < 113 && u>0){
+									imgControl.writeRectangle(u, i, 30, 15, 1);
+									imgControl.writeScreenMirror();
+									i++;
+									u--;
+								}
+							}else{
+								//hat links angeschlagen
+							}
+			}else{
+
+			}
+
+		}else{
+			//---hat rechts angeschlagen----
+			u--;
+			//noch oben links
+			while(i < 113 && u<210){
+				imgControl.writeRectangle(u, i, 30, 15, 1);
+				imgControl.writeScreenMirror();
+				i--;
+				u--;
+			}
+
+			if(i == 0){
+				//hat oben angeschlagen
+				//nach unten rechts
+				while(i < 113 && u>0){
+					imgControl.writeRectangle(u, i, 30, 15, 1);
+					imgControl.writeScreenMirror();
+					i++;
+					u--;
+				}
+			}else{
+				//hat links angeschlagen
+			}
+
 		}
+
+
+
 	}
 
 

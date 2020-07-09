@@ -31,32 +31,44 @@ void ImgControl::writeScreenMirror(){
 
 	lcdDriver->WriteData_16bit(LCD_setAddressPointer, LCD_GRAPHIC_START_ADDR);				//set Address pointer to Graphic home Address
 	uint8_t sendByte = 0;
+	uint8_t testByte = 0;
+	uint8_t offset = 0;
 	uint16_t addr = LCD_GRAPHIC_START_ADDR;
+	uint8_t addrDiff = 0;
 
 
 	for(uint8_t rowCounter = 0;rowCounter < LCD_HEIGHT; rowCounter++){
 
 		if(screenMirrorLast[rowCounter].any()){
-
-
-
+			offset = 0;
 
 			lcdDriver->WriteData_16bit(LCD_setAddressPointer, addr);				//set Address pointer to Graphic home Address
 			for(uint8_t columnCounter = 0; columnCounter < 40; columnCounter++){
 				sendByte = 0;
+				testByte = 0;
 				for(uint8_t bitCounter = 0; bitCounter<6; bitCounter++){
-					sendByte |= screenMirror[rowCounter][0];
+					sendByte |= screenMirror[rowCounter][bitCounter+offset];
+					testByte |= screenMirrorLast[rowCounter][bitCounter+offset];
 					sendByte<<=1;
-					screenMirror[rowCounter]>>=1;
+					testByte<<=1;
+				//	screenMirror[rowCounter]>>(bitCounter+1);
 				}
 				sendByte>>=1;
+				testByte>>=1;
+				if(testByte != 0){
+					lcdDriver->WriteData_16bit(LCD_setAddressPointer, addr);
+					lcdDriver->WriteData_8bit(LCD_dataWriteAndIncrementADP,sendByte);
+				}
 
-				lcdDriver->WriteData_8bit(LCD_dataWriteAndIncrementADP,sendByte);
+				addr = addr + 1;
+				addrDiff++;
+				offset += 6;
 			}
 
 
 
-			addr = addr + 40;
+			//addr = addr + (40-addrDiff);
+			addrDiff = 0;
 
 		}else{
 			addr = addr + 40;
