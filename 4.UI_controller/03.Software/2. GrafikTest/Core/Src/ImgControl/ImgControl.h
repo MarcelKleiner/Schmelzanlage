@@ -37,6 +37,7 @@ private:
 
 	LCDDriver *lcdDriver;
 	bitset<240> screenMirror[128];
+	bitset<240> screenMirrorLast[128];
 
 
 };

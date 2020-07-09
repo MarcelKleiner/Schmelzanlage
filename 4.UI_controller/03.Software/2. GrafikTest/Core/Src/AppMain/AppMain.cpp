@@ -45,11 +45,11 @@ void AppMain::main(){
 	*/
 	while(1){
 		for(int i = 0; i<98;i++){
-			imgControl.writeRectangle(i, i, 30, 15, 1);
+			imgControl.writeRectangle(i, 20, 30, 15, 1);
 			imgControl.writeRectangle(i+100, i, 20, 10, 1);
 			imgControl.writeRectangle(i+40, i, 10, 25, 1);
 			imgControl.writeScreenMirror();
-			imgControl.clearMirror();
+			//imgControl.clearMirror();
 			//HAL_Delay(10);
 			//lcdDriver.WriteRectangle(i+20+1, i+1, 30, 20, 1);
 //			lcdDriver.WriteRectangle(i+20, i, 30, 20, 0);
@@ -59,11 +59,11 @@ void AppMain::main(){
 		}
 
 		for(int i = 98; i>0;i--){
-			imgControl.writeRectangle(i, i, 30, 15, 1);
+			imgControl.writeRectangle(i, 20, 30, 15, 1);
 			imgControl.writeRectangle(i+100, i, 20, 10, 1);
 			imgControl.writeRectangle(i+40, i, 10, 25, 1);
 			imgControl.writeScreenMirror();
-			imgControl.clearMirror();
+			//imgControl.clearMirror();
 //			lcdDriver.WriteRectangle(i+20, i, 30, 20, 1);
 //			lcdDriver.WriteRectangle(200, i, 30, 20, 1);
 //			lcdDriver.WriteRectangle(i, 0, 30, 20, 1);
