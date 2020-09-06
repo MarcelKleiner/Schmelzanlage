@@ -149,8 +149,8 @@ void LCDDriver::SetLCDSize(LCD_SIZE size){
 	if(size == SIZE_40C){
 		LCD_SIZE_40;				//set size 40 Columns
 		LCD_FONT_68;				//set Fontsize 6x8px
-		LCD_XY_SIZE.column = LCD_WIDTH/6;	//set LCD size struct to 40 Columns
-		LCD_XY_SIZE.row = LCD_WIDTH/8;		//set LCD size struct to 16 Row
+		LCD_XY_SIZE.column = LCD_WIDTH_PX/6;	//set LCD size struct to 40 Columns
+		LCD_XY_SIZE.row = LCD_WIDTH_PX/8;		//set LCD size struct to 16 Row
 		LCD_XY_SIZE.patternHeight = 8;		//set pattern height to 8 pixel (pattern is the 6x8 pixel container)
 		LCD_XY_SIZE.patternWidth =  6;		//set pattern width to 6 pixel (pattern is the 6x8 pixel container)
 		WriteData_16bit(LCD_setTextArea, 0x0028);	//set TextArea to 40 Columns
@@ -198,7 +198,7 @@ void LCDDriver::ClearDisplay(){
 
 
 
-void LCDDriver::writeScreen(bitset<LCD_WIDTH> *screenMirror){
+void LCDDriver::writeScreen(bitset<LCD_WIDTH_PX> *screenMirror){
 
 }
 

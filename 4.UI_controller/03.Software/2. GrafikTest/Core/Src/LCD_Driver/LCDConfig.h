@@ -14,8 +14,12 @@
 //general LCD settings
 
 #define LCD_TIMEOUT			50
-#define LCD_WIDTH			240
-#define LCD_HEIGHT			128
+
+#define LCD_WIDTH_PX		240
+#define LCD_HEIGHT_PX		128
+
+#define LCD_WIDTH_LINE		40
+#define LCD_HEIGHT_LINE		16
 
 #define LCD_TXT_START_ADDR		0x0000
 #define LCD_GRAPHIC_START_ADDR	0x0400

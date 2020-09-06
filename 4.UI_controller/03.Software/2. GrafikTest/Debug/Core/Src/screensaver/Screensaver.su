@@ -1,0 +1,6 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+Screensaver.cpp:12:1:Screensaver::Screensaver(ImgControl*)	16	static
+Screensaver.cpp:21:6:void Screensaver::resetScreensaver()	16	static
+Screensaver.cpp:28:6:void Screensaver::setShapeSize(uint8_t, uint8_t)	16	static
+Screensaver.cpp:33:6:void Screensaver::setStartPos(uint8_t, uint8_t)	16	static
+Screensaver.cpp:39:6:void Screensaver::screensaver()	32	static

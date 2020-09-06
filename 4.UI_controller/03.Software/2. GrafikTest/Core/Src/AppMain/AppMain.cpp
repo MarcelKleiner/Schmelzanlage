@@ -19,9 +19,11 @@ AppMain::AppMain() {
 void AppMain::main(){
 
 	imgControl.initImgControl();
+	screenSaver.setShapeSize(15,8);
+	//screenSaver_1.setShapeSize(5, 10);
 
-
-
+	screenSaver.setStartPos(0, 0);
+	//screenSaver_1.setStartPos(20, 80);
 
 //	lcdDriver.InitLCD();
 
@@ -43,95 +45,12 @@ void AppMain::main(){
 
 	lcdDriver.WriteRectangle(140, 50, 51, 30, 1);
 	*/
-	uint8_t i = 0;
-	uint8_t u = 0;
+
 	while(1){
 
-		//unten rechts
-		while(i < 113 && u<210){
-			imgControl.writeRectangle(u, i, 30, 15, 1);
-			imgControl.writeScreenMirror();
-			i++;
-			u++;
-		}
-
-		if(i == 113){
-			i--;
-			//----hat unten angeschlagen----
-			//nach oben rechts (anschlag unten)
-			while(i > 0 && u<210){
-				imgControl.writeRectangle(u, i, 30, 15, 1);
-				imgControl.writeScreenMirror();
-				i--;
-				u++;
-			}
-			if(u==210){
-				//nach oben links (anschlag rechts
-				while(i > 0 && u>0){
-					imgControl.writeRectangle(u, i, 30, 15, 1);
-					imgControl.writeScreenMirror();
-					i--;
-					u--;
-				}
-				if(i == 0){
-								//hat oben angeschlagen
-								//nach unten rechts
-								while(i < 113 && u>0){
-									imgControl.writeRectangle(u, i, 30, 15, 1);
-									imgControl.writeScreenMirror();
-									i++;
-									u--;
-								}
-							}else{
-								//hat links angeschlagen
-							}
-			}else{
-
-			}
-
-		}else{
-			//---hat rechts angeschlagen----
-			u--;
-			//noch oben links
-			while(i < 113 && u<210){
-				imgControl.writeRectangle(u, i, 30, 15, 1);
-				imgControl.writeScreenMirror();
-				i--;
-				u--;
-			}
-
-			if(i == 0){
-				//hat oben angeschlagen
-				//nach unten rechts
-				while(i < 113 && u>0){
-					imgControl.writeRectangle(u, i, 30, 15, 1);
-					imgControl.writeScreenMirror();
-					i++;
-					u--;
-				}
-			}else{
-				//hat links angeschlagen
-			}
-
-		}
-
-
-
-	}
-
-
-
-//	lcdDriver.WriteRectangle(122, 119, 29, 20, 1);
-//	lcdDriver.WriteRectangle(123, 120, 28, 20, 1);
-//	lcdDriver.WriteRectangle(124, 121, 27, 20, 1);
-//	lcdDriver.WriteRectangle(125, 122, 26, 20, 1);
-//	lcdDriver.WriteRectangle(126, 123, 25, 20, 1);
-//	lcdDriver.WriteRectangle(127, 124, 24, 20, 1);
-//	lcdDriver.WriteRectangle(128, 125, 23, 20, 1);
-//	lcdDriver.WriteRectangle(129, 126, 22, 20, 1);
-//	lcdDriver.WriteRectangle(130, 127, 21, 20, 1);
-	while(1){
-
+		screenSaver.screensaver();
+	//	screenSaver_1.screensaver();
+		imgControl.writeScreenMirror();
 	}
 
 

@@ -22,10 +22,47 @@ void ImgControl::initImgControl(void){
 
 
 
+//Rectangle Functions
+
+/*
+ * Write a Rectangle
+ * @param startX
+ * @param startY
+ * @param width
+ * @param height
+ * @param lineThickness
+ */
+void ImgControl::writeRectangle(uint8_t startX, uint8_t startY, uint8_t width,uint8_t height, uint8_t lineThickness){
+	writeXLine(startX, startY, width, lineThickness);
+	writeYLine(startX, startY, height, lineThickness);
+	writeXLine(startX, startY+height, width, lineThickness);
+	writeYLine(startX+width, startY, height, lineThickness);
+
+}
+
+void ImgControl::writeXLine(uint8_t startX, uint8_t startY, uint8_t width, uint8_t lineThickness){
+	for(uint8_t i = 0; i<width; i++){
+		screenMirror[startY][startX+i] = 1;
+	}
+
+}
+
+
+void ImgControl::writeYLine(uint8_t startX, uint8_t startY, uint8_t height, uint8_t lineThickness){
+	for(uint8_t i = 0; i<height; i++){
+		screenMirror[startY+i][startX] = 1;
+	}
+}
+
+
+
+
+
+
 
 void ImgControl::writeScreenMirror(){
 	//lcdDriver->writeScreen(screenMirror);
-	for(uint8_t copy = 0; copy < LCD_HEIGHT; copy++){
+	for(uint8_t copy = 0; copy < LCD_HEIGHT_PX; copy++){
 		screenMirrorLast[copy] = (screenMirrorLast[copy] ^ screenMirror[copy]);
 	}
 
@@ -37,7 +74,7 @@ void ImgControl::writeScreenMirror(){
 	uint8_t addrDiff = 0;
 
 
-	for(uint8_t rowCounter = 0;rowCounter < LCD_HEIGHT; rowCounter++){
+	for(uint8_t rowCounter = 0;rowCounter < LCD_HEIGHT_PX; rowCounter++){
 
 		if(screenMirrorLast[rowCounter].any()){
 			offset = 0;
@@ -76,39 +113,14 @@ void ImgControl::writeScreenMirror(){
 
 	}
 
-	for(uint8_t copy = 0; copy < LCD_HEIGHT; copy++){
+	for(uint8_t copy = 0; copy < LCD_HEIGHT_PX; copy++){
 		screenMirrorLast[copy] = screenMirror[copy];
 		screenMirror[copy].reset();
 	}
 }
 
-
-void ImgControl::writeXLine(uint8_t startX, uint8_t startY, uint8_t width, uint8_t lineThickness){
-	for(uint8_t i = 0; i<width; i++){
-		screenMirror[startY][startX+i] = 1;
-	}
-
-}
-
-
-void ImgControl::writeYLine(uint8_t startX, uint8_t startY, uint8_t height, uint8_t lineThickness){
-	for(uint8_t i = 0; i<height; i++){
-		screenMirror[startY+i][startX] = 1;
-	}
-}
-
-
-void ImgControl::writeRectangle(uint8_t startX, uint8_t startY, uint8_t width,uint8_t height, uint8_t lineThickness){
-	writeXLine(startX, startY, width, lineThickness);
-	writeYLine(startX, startY, height, lineThickness);
-	writeXLine(startX, startY+height, width, lineThickness);
-	writeYLine(startX+width, startY, height, lineThickness);
-
-}
-
-
 void ImgControl::clearMirror(){
-	for(uint8_t i = 0; i<LCD_HEIGHT;i++){
+	for(uint8_t i = 0; i<LCD_HEIGHT_PX;i++){
 		screenMirror[i].reset();
 	}
 }

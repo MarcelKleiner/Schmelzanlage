@@ -31,6 +31,7 @@ Core/Src/AppMain \
 Core/Src/ImgControl \
 Core/Src/LCD_Driver \
 Core/Src \
+Core/Src/screensaver \
 Core/Startup \
 Drivers/STM32F3xx_HAL_Driver/Src \
 

@@ -11,6 +11,7 @@
 
 #include"../ImgControl/ImgControl.h"
 #include "../LCD_Driver/LCDDriver.h"
+#include "../screensaver/Screensaver.h"
 
 
 #ifndef SRC_APPMAIN_APPMAIN_H_
@@ -25,6 +26,8 @@ private:
 
 	LCDDriver lcdDriver = LCDDriver();
 	ImgControl imgControl = ImgControl(&lcdDriver);
+	Screensaver screenSaver = Screensaver(&imgControl);
+	Screensaver screenSaver_1 = Screensaver(&imgControl);
 };
 
 #endif /* SRC_APPMAIN_APPMAIN_H_ */

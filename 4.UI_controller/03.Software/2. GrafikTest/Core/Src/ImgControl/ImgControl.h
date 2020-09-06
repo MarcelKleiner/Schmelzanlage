@@ -18,26 +18,32 @@
 class ImgControl {
 
 public:
+	//general init functions
 	ImgControl(LCDDriver *lcdDriver);
 	void initImgControl(void);
 
 
+	//rectangle functions
 	void writeXLine(uint8_t startX, uint8_t startY, uint8_t width, uint8_t lineThickness);
 	void writeYLine(uint8_t startX, uint8_t startY, uint8_t height, uint8_t lineThickness);
 	void writeRectangle(uint8_t startX, uint8_t startY, uint8_t width,uint8_t height, uint8_t lineThickness);
 
+	//circle functions
+	void writeCircle(uint8_t center_x, uint8_t center_y, uint8_t radius);
 
+	//write functions
 	void clearMirror(void);
 	void writeScreenMirror(void);
+
+
 private:
 
-
-
-
-
+	//instancen
 	LCDDriver *lcdDriver;
-	bitset<240> screenMirror[128];
-	bitset<240> screenMirrorLast[128];
+
+	//bitsets
+	bitset<LCD_WIDTH_PX> screenMirror[LCD_HEIGHT_PX];
+	bitset<LCD_WIDTH_PX> screenMirrorLast[LCD_HEIGHT_PX];
 
 
 };
